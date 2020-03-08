@@ -34,6 +34,7 @@ class ConfigProvider
             'invokables' => [
             ],
             'factories'  => [
+                Handler\AnnouncementsReadHandler::class => Handler\AnnouncementsReadHandlerFactory::class,
             ],
         ];
     }
