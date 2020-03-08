@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Post;
 
+use Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain;
+use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
+
 /**
  * The configuration provider for the Post module
  *
@@ -22,6 +25,7 @@ class ConfigProvider
         return [
             'dependencies' => $this->getDependencies(),
             'templates'    => $this->getTemplates(),
+            'doctrine'     => $this->getDoctrineEntities(),
         ];
     }
 
@@ -47,6 +51,25 @@ class ConfigProvider
         return [
             'paths' => [
                 'post'    => [__DIR__ . '/../templates/'],
+            ],
+        ];
+    }
+
+    public function getDoctrineEntities() : array
+    {
+        return [
+            'driver' => [
+                'orm_default' => [
+                    'class' => MappingDriverChain::class,
+                    'drivers' => [
+                        'Post\Entity' => 'post_entity',
+                    ],
+                ],
+                'post_entity' => [
+                    'class' => AnnotationDriver::class,
+                    'cache' => 'array',
+                    'paths' => [__DIR__ . '/Entity'],
+                ],
             ],
         ];
     }
