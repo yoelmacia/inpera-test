@@ -14,6 +14,7 @@ use Mezzio\Router\Middleware\ImplicitOptionsMiddleware;
 use Mezzio\Router\Middleware\MethodNotAllowedMiddleware;
 use Mezzio\Router\Middleware\RouteMiddleware;
 use Psr\Container\ContainerInterface;
+use Mezzio\Helper\BodyParams\BodyParamsMiddleware;
 
 /**
  * Setup middleware pipeline:
@@ -73,4 +74,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // NotFoundHandler kicks in; alternately, you can provide other fallback
     // middleware to execute.
     $app->pipe(NotFoundHandler::class);
+
+    // Parse body params
+    $app->pipe(BodyParamsMiddleware::class);
 };
