@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
-class PostReadHandler implements RequestHandlerInterface
+class PostListHandler implements RequestHandlerInterface
 {
     protected $entityManager;
 

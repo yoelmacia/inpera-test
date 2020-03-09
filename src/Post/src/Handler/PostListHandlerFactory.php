@@ -7,11 +7,11 @@ namespace Post\Handler;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 
-class PostReadHandlerFactory
+class PostListHandlerFactory
 {
-    public function __invoke(ContainerInterface $container) : PostReadHandler
+    public function __invoke(ContainerInterface $container) : PostListHandler
     {
         $entityManager = $container->get(EntityManager::class);
-        return new PostReadHandler($entityManager);
+        return new PostListHandler($entityManager);
     }
 }

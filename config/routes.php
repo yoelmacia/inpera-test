@@ -36,7 +36,7 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     $app->get('/', App\Handler\HomePageHandler::class, 'home');
     $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
     // Get all post
-    $app->get('/post[/]', Post\Handler\PostReadHandler::class, 'post.read');
+    $app->get('/post[/]', Post\Handler\PostListHandler::class, 'post.list');
     // Create post
     $app->post('/post[/]', Post\Handler\PostCreateHandler::class, 'post.create');
     // Update post
