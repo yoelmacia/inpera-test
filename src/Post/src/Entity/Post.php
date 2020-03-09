@@ -15,6 +15,7 @@ class Post
 {
     /**
      * @ORM\Id
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer", unique=true)
      */
     protected $id;
@@ -114,5 +115,16 @@ class Post
         } else {
             $this->created = $created;
         }
+    }
+
+    /**
+     * @param array $requestBody
+     * @throws \Exception
+     */
+    public function setPost(array $requestBody): void
+    {
+        $this->setTitle($requestBody['title']);
+        $this->setDescription($requestBody['description']);
+        $this->setCategory($requestBody['category']);
     }
 }
