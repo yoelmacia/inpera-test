@@ -127,4 +127,19 @@ class Post
         $this->setDescription($requestBody['description']);
         $this->setCategory($requestBody['category']);
     }
+
+    /**
+     *
+     * @return array|mixed
+     */
+    public function getPost(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'title' => $this->getId(),
+            'description' => $this->getDescription(),
+            'category' => $this->getCategory(),
+            'created' => $this->getCreated()->format('Y-m-d H:i:s')
+        ];
+    }
 }

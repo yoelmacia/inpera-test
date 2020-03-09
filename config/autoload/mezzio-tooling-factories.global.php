@@ -15,6 +15,7 @@ return [
         'factories' => [
             Post\Handler\PostCreateHandler::class => Post\Handler\PostCreateHandlerFactory::class,
             Post\Handler\PostReadHandler::class => Post\Handler\PostReadHandlerFactory::class,
+            Post\Handler\PostUpdateHandler::class => Post\Handler\PostUpdateHandlerFactory::class,
         ],
     ],
 ];

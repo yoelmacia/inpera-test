@@ -39,4 +39,6 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     $app->get('/post[/]', Post\Handler\PostReadHandler::class, 'post.read');
     // Create post
     $app->post('/post[/]', Post\Handler\PostCreateHandler::class, 'post.create');
+    // Update post
+    $app->put('/post/{id:\d+}[/]', Post\Handler\PostUpdateHandler::class, 'post.update2');
 };
