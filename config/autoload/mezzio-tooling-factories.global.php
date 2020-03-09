@@ -14,6 +14,7 @@ return [
     'dependencies' => [
         'factories' => [
             Post\Handler\PostCreateHandler::class => Post\Handler\PostCreateHandlerFactory::class,
+            Post\Handler\PostDeleteHandler::class => Post\Handler\PostDeleteHandlerFactory::class,
             Post\Handler\PostReadHandler::class => Post\Handler\PostReadHandlerFactory::class,
             Post\Handler\PostUpdateHandler::class => Post\Handler\PostUpdateHandlerFactory::class,
         ],
