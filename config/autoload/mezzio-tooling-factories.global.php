@@ -13,6 +13,7 @@ declare(strict_types=1);
 return [
     'dependencies' => [
         'factories' => [
+            Post\Handler\PostCreateHandler::class => Post\Handler\PostCreateHandlerFactory::class,
             Post\Handler\PostReadHandler::class => Post\Handler\PostReadHandlerFactory::class,
         ],
     ],
