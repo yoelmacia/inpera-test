@@ -35,5 +35,8 @@ use Psr\Container\ContainerInterface;
 return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container) : void {
     $app->get('/', App\Handler\HomePageHandler::class, 'home');
     $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
+    // Get all post
     $app->get('/post[/]', Post\Handler\PostReadHandler::class, 'post.read');
+    // Create post
+    $app->post('/post[/]', Post\Handler\PostCreateHandler::class, 'post.create');
 };
